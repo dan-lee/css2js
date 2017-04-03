@@ -13,7 +13,7 @@ It takes following things into account:
 * Escaping different quotes in a single value (e.g. in `font-family`)
 * Not-enclosed CSS declarations (*i.e. without selector*) for fast copy & paste
  
-## [**Online version**](http://model-drift-48804.netlify.com/)
+## [**Online version**](https://css2js.netlify.com)
 
 Simply copy & paste the styles you want to convert.
  
@@ -47,4 +47,4 @@ font-family: "Roboto", 'Open Sans';
 
 ^ *This is with disabled `px` output (helpful for React projects)*
 
-→ [**Check it out by yourself**](http://model-drift-48804.netlify.com/)
+→ [**Check it out by yourself**](https://css2js.netlify.com)
