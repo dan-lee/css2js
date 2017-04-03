@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS to JavaScript style</title>
+
+  <link href="//fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
+  <style>
+
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <header>
+    <img height="110" src="./css.png" />
+    <span id="arrow">→</span>
+    <img height="110" src="./js.png" />
+  </header>
+  <div class="row">
+    <div class="col">
+      <textarea cols="1" rows="1" id="input"></textarea>
+    </div>
+    <div class="col">
+      <textarea cols="1" rows="1" id="output" readonly></textarea>
+      <div class="copy">
+        <span id="copied-output">Copied!</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" id="copy-output" class="textarea-icon">
+          <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path>
+        </svg>
+      </div>
+  </div>
+  <div>
+    <ul id="options">
+      <li><label><input type="checkbox" name="option-no-px" checked>  Omit <code>px</code> suffix (helpful for React)</label></li>
+      <li><label><input type="checkbox" name="option-quote"> Prefer double quotes</label></li>
+      <li><label><input type="checkbox" name="option-enforce"> Enforce quotes everywhere</label></li>
+      <li><label><input type="checkbox" name="option-property"> Quotes around property name</label></li>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<script src="bundle.js"></script>
+</body>
+</html>

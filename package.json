@@ -1,0 +1,15 @@
+{
+  "name": "css2js",
+  "description": "Easily convert CSS declarations to JavaScript style assignments",
+  "bin": "src/cli.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack -w"
+  },
+  "dependencies": {
+    "css": "^2.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^2.3.2"
+  }
+}
