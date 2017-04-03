@@ -19,7 +19,7 @@ Simply copy & paste the styles you want to convert.
  
 **Example input**
 
-```css
+```
 width: 600px;
 min-height: 100vh;
 font-weight: 800;
