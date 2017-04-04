@@ -6,6 +6,8 @@
 
 I created this tool for projects, where I'd constantly write CSS and then transfer it into object literals for `glamor` or inline styles.
 
+![Example GIF](https://media.giphy.com/media/3o7bugiUO5P1YZ7TlS/giphy.gif)
+
 It takes following things into account:
 
 * Unitless values (`opacity`, `line-height`, `font-weight`, …)
