@@ -889,6 +889,7 @@ input.addEventListener('keydown', e => {
 copyOutput.addEventListener('click', e => {
   output.select()
   document.execCommand('copy')
+  output.blur()
 
   copiedOutput.style.opacity = 1
   setTimeout(() => copiedOutput.style.opacity = 0, 2000)
@@ -911,7 +912,17 @@ optionProperty.addEventListener('change', e => {
   updateOutput(input.value)
 })
 
+input.value = `width: 600px;
+min-height: 100vh;
+font-weight: 800;
+color: #bada55;
+opacity: .5;
+-webkit-font-smoothing: antialiased;
+font-family: "Roboto", 'Open Sans';`
+
+updateOutput(input.value)
 input.focus()
+
 
 
 /***/ })
