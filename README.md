@@ -1,5 +1,7 @@
 # CSS to JavaScript `style`
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dan-lee/css2js.svg)](https://greenkeeper.io/)
+
 ![](logo.png)
 
 ## About
