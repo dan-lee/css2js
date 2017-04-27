@@ -4,12 +4,20 @@
   "bin": "src/cli.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack -w"
+    "start": "webpack-dev-server -w"
   },
   "dependencies": {
-    "css": "^2.2.1"
+    "css": "^2.2.1",
+    "jsx-html-class": "^1.0.3"
   },
   "devDependencies": {
-    "webpack": "^2.3.2"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.5"
   }
 }
