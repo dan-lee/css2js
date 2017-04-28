@@ -1,12 +1,12 @@
 # CSS to JavaScript `style`
 
-![](logo.png)
+[![](logo.png)](https://css2js.netlify.com)
 
 ## About
 
-I created this tool for projects, where I'd constantly write CSS and then transfer it into object literals for `glamor` or inline styles.
+I created [this tool](https://css2js.netlify.com) for projects, where I'd constantly write CSS and then convert it into object literals for `glamor`, inline styles or other css-in-js libraries.
 
-![Example GIF](https://media.giphy.com/media/3o7bugiUO5P1YZ7TlS/giphy.gif)
+[![Example GIF](https://media.giphy.com/media/3o7bugiUO5P1YZ7TlS/giphy.gif)](https://css2js.netlify.com)
 
 It takes following things into account:
 
