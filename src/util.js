@@ -1,3 +1,5 @@
+const isUnitlessCSSProperty = require('unitless-css-property')
+
 function camelize (str) {
   return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
 }
@@ -13,11 +15,7 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
     return surround(value, '`')
   }
 
-  if (enforceQuotes) {
-    return surround(value, quoteChr)
-  }
-
-  if (value.includes(`'`) && value.includes(`"`)) {
+  if (enforceQuotes || (value.includes(`'`) && value.includes(`"`))) {
     const escapedValue = value.replace(new RegExp(quoteChr, 'g'), `\\${quoteChr}`)
     return surround(escapedValue, quoteChr)
   }
@@ -30,7 +28,7 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
     return surround(value, `"`)
   }
 
-  if (isUnitless(prop)) {
+  if (isUnitlessCSSProperty(prop)) {
     return (
       /px$/.test(value) || /^[a-z]*$/.test(value)
         ? surround(value, quoteChr)
@@ -49,41 +47,13 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
   return surround(value, quoteChr)
 }
 
-function isUnitless (prop) {
-  return [
-    'animationIterationCount',
-    'boxFlex',
-    'boxFlexGroup',
-    'boxOrdinalGroup',
-    'columnCount',
-    'flex',
-    'flexGrow',
-    'flexPositive',
-    'flexShrink',
-    'flexNegative',
-    'flexOrder',
-    'gridRow',
-    'gridColumn',
-    'fontWeight',
-    'lineClamp',
-    'lineHeight',
-    'opacity',
-    'order',
-    'orphans',
-    'tabSize',
-    'widows',
-    'zIndex',
-    'zoom',
-    'fillOpacity',
-    'stopOpacity',
-    'strokeDashoffset',
-    'strokeOpacity',
-    'strokeWidth'
-  ].indexOf(prop) > -1
+function indent (str, len) {
+  return ' '.repeat(len) + str
 }
 
 module.exports = {
   camelize,
   quoteValue,
-  surround
+  surround,
+  indent
 }

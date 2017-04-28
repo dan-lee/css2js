@@ -3,21 +3,28 @@
   "description": "Easily convert CSS declarations to JavaScript style assignments",
   "bin": "src/cli.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server -w"
+    "build": "NODE_ENV=production webpack",
+    "start": "webpack-dev-server -w --hot --inline"
   },
   "dependencies": {
+    "copy-to-clipboard": "^3.0.6",
     "css": "^2.2.1",
-    "jsx-html-class": "^1.0.3"
+    "unitless-css-property": "^1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
+    "glamor": "^2.20.24",
     "react": "^15.5.4",
+    "react-codemirror": "^0.3.0",
     "react-dom": "^15.5.4",
-    "webpack": "^2.3.2",
+    "react-hot-loader": "next",
+    "webpack": "^2.4.1",
+    "webpack-bundle-analyzer": "^2.4.0",
     "webpack-dev-server": "^2.4.5"
   }
 }

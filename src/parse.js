@@ -13,9 +13,27 @@ function parseDeclarations (declarations) {
 }
 
 module.exports = declarations => {
-  const obj = parse(`.example {${declarations}}`)
+  try {
+    const obj = parse(declarations)
 
-  const astDeclarations = obj.stylesheet.rules[0].declarations
+    if (obj.type === 'stylesheet') {
+      return obj.stylesheet.rules.reduce((allDeclarations, rule) => {
+        if (rule.type === 'rule') {
+          allDeclarations.push({
+            selector: rule.selectors,
+            declarations: parseDeclarations(rule.declarations)
+          })
+        }
+        return allDeclarations
+      }, [])
+    }
 
-  return parseDeclarations(astDeclarations)
+  } catch (e) {
+    const obj = parse(`.tmp-placeholder {${declarations}}`)
+
+    return [{
+      selector: undefined,
+      declarations: parseDeclarations(obj.stylesheet.rules[0].declarations)
+    }]
+  }
 }
