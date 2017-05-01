@@ -29,6 +29,12 @@ if (process.env.NODE_ENV === 'production') {
       join_vars: true
     })
   )
+
+  plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': { 'NODE_ENV': JSON.stringify('production') }
+    })
+  )
 } else {
   entry.unshift('react-hot-loader/patch')
 }
