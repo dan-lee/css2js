@@ -1,16 +1,8 @@
 const { createInterface } = require('readline')
 const parse = require('./parse')
 const render = require('./render')
-// const { spawn } = require('child_process')
 
 const rl = createInterface(process.stdin, process.stdout)
-
-// function pbcopy (data) {
-//   const proc = spawn('pbcopy')
-//   proc.stdin.write(data)
-//   proc.stdin.end()
-//   proc.kill()
-// }
 
 const lines = []
 

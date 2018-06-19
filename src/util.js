@@ -1,14 +1,18 @@
 const isUnitlessCSSProperty = require('unitless-css-property')
 
-function camelize (str) {
+function camelize(str) {
   return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())
 }
 
-function surround (val, by) {
+function surround(val, by) {
   return by + val + by
 }
 
-function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enforceQuotes = false }) {
+function quoteValue(
+  prop,
+  value,
+  { noPx = true, preferDoubleQuotes = false, enforceQuotes = false }
+) {
   const quoteChr = preferDoubleQuotes ? `"` : `'`
 
   if (value.includes('\n')) {
@@ -16,7 +20,10 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
   }
 
   if (enforceQuotes || (value.includes(`'`) && value.includes(`"`))) {
-    const escapedValue = value.replace(new RegExp(quoteChr, 'g'), `\\${quoteChr}`)
+    const escapedValue = value.replace(
+      new RegExp(quoteChr, 'g'),
+      `\\${quoteChr}`
+    )
     return surround(escapedValue, quoteChr)
   }
 
@@ -29,11 +36,10 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
   }
 
   if (isUnitlessCSSProperty(prop)) {
-    return (
-      /px$/.test(value) || /^[a-z]*$/.test(value)
-        ? surround(value, quoteChr)
-        : value
-    )
+    return /(px|vh|vw|em|rem|ex|fr|cm|mm|in|pt|pc|%)$/.test(value) ||
+      /^[a-z]*$/.test(value)
+      ? surround(value, quoteChr)
+      : value
   }
 
   if (/^\d*\.?\d+$/.test(value)) {
@@ -47,7 +53,7 @@ function quoteValue (prop, value, { noPx = true, preferDoubleQuotes = false, enf
   return surround(value, quoteChr)
 }
 
-function indent (str, len) {
+function indent(str, len) {
   return ' '.repeat(len) + str
 }
 
@@ -55,5 +61,5 @@ module.exports = {
   camelize,
   quoteValue,
   surround,
-  indent
+  indent,
 }

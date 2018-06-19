@@ -1,12 +1,6 @@
 {
-  "presets": [
-    "react",
-    ["env", {
-      "modules": false
-    }]
-  ],
+  "presets": ["react", "env"],
   "plugins": [
-    "react-hot-loader/babel",
     "transform-class-properties",
     "transform-object-rest-spread"
   ]

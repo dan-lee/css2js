@@ -1,7 +1,7 @@
 const parse = require('css/lib/parse')
 const { camelize } = require('./util')
 
-function parseDeclarations (declarations) {
+function parseDeclarations(declarations) {
   return declarations.reduce((styles, { type, value, property }) => {
     if (type === 'declaration') {
       const prop = camelize(property)
@@ -21,19 +21,20 @@ module.exports = declarations => {
         if (rule.type === 'rule') {
           allDeclarations.push({
             selector: rule.selectors,
-            declarations: parseDeclarations(rule.declarations)
+            declarations: parseDeclarations(rule.declarations),
           })
         }
         return allDeclarations
       }, [])
     }
-
   } catch (e) {
     const obj = parse(`.tmp-placeholder {${declarations}}`)
 
-    return [{
-      selector: undefined,
-      declarations: parseDeclarations(obj.stylesheet.rules[0].declarations)
-    }]
+    return [
+      {
+        selector: undefined,
+        declarations: parseDeclarations(obj.stylesheet.rules[0].declarations),
+      },
+    ]
   }
 }
